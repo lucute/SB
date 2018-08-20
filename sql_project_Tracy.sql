@@ -74,7 +74,7 @@ SELECT
     name,
     monthlymaintenance,
     (CASE WHEN monthlymaintenance > 100 THEN 'expensive'
-                ELSE 'cheap' END) AS exp_che
+          ELSE 'cheap' END) AS exp_che
 FROM Facilities;
 
 
@@ -147,10 +147,10 @@ SELECT
                 WHEN Facilities.guestcost != 0.0 THEN Facilities.guestcost * B2.slots 
                 ELSE NULL END) AS cost
 FROM ( SELECT Bookings.facid,
-                             Members.firstname,
-							 Members.surname,
-                             Bookings.slots,
-                             Bookings.starttime
+              Members.firstname,
+              Members.surname,
+              Bookings.slots,
+              Bookings.starttime
               FROM Bookings
               JOIN Members
               ON Members.memid = Bookings.memid
